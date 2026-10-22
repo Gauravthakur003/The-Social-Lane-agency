@@ -1,0 +1,53 @@
+:root {
+  /* Brand */
+  --navy: #06133d;
+  --blue: #1456ff;
+  --sky: #eaf3ff;
+  --black: #07112f;
+
+  /* Light theme */
+  --bg: #ffffff;
+  --surface: #f7f9fd;
+  --surface-2: #eef3fb;
+
+  --ink: #0b1739;
+  --muted: #65708b;
+
+  --line: #dce4f1;
+
+  --white: #ffffff;
+
+  /* Effects */
+  --shadow-sm: 0 8px 24px rgba(6, 19, 61, 0.06);
+  --shadow-md: 0 18px 50px rgba(6, 19, 61, 0.10);
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  /* Theme transition */
+  --theme-transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+[data-theme="dark"] {
+  --bg: #070b18;
+  --surface: #0d1326;
+  --surface-2: #111a31;
+
+  --ink: #f4f7ff;
+  --muted: #a2abc0;
+
+  --line: #222c45;
+
+  --white: #ffffff;
+
+  --sky: #101b36;
+
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.20);
+  --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
