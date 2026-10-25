@@ -1,6 +1,6 @@
 import { ArrowUpRight, Target, Users, Lightbulb } from 'lucide-react'
 import SectionTitle from '../components/common/SectionTitle'
-import saurabhImage from '../assets/images/saurabh.jpeg'
+import saurabhImage from '../assets/images/Saurabh.jpeg'
 import sahilImage from '../assets/images/sahil.png'
 
 export default function About() {
