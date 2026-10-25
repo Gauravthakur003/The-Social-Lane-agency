@@ -34,9 +34,7 @@ export default function Navbar() {
               {label}
             </NavLink>
           ))}
-          <Link to="/contact" className="nav-cta mobile-cta" onClick={() => setOpen(false)}>
-            Connect Us <ArrowUpRight size={14} />
-          </Link>
+         
         </div>
 
         <Link to="/contact" className="nav-cta desktop-cta">
