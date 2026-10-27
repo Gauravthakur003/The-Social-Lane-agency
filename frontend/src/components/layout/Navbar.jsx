@@ -1,3 +1,4 @@
+
 import { NavLink, Link } from 'react-router-dom'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { useState } from 'react'
@@ -14,13 +15,19 @@ const links = [
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
+  const closeMenu = () => setOpen(false)
+
   return (
     <header className="navbar-wrap">
-      <nav className="navbar">
-        <Link to="/" className="brand" onClick={() => setOpen(false)}>
+      <nav className="navbar" aria-label="Main navigation">
+        <Link
+          to="/"
+          className="brand"
+          onClick={closeMenu}
+          aria-label="The Social Lane home"
+        >
           <img src={logo} alt="The Social Lane" />
         </Link>
-        
 
         <div className={`nav-links ${open ? 'open' : ''}`}>
           {links.map(([path, label]) => (
@@ -28,20 +35,34 @@ export default function Navbar() {
               key={path}
               to={path}
               end={path === '/'}
-              onClick={() => setOpen(false)}
-              className={({isActive}) => isActive ? 'active' : ''}
+              onClick={closeMenu}
+              className={({ isActive }) =>
+                isActive ? 'active' : ''
+              }
             >
               {label}
             </NavLink>
           ))}
-         
+
+          {/* Connect Us inside the mobile dropdown */}
+          
         </div>
 
-        <Link to="/contact" className="nav-cta desktop-cta">
+        {/* Desktop CTA */}
+        <Link
+          to="/contact"
+          className="nav-cta desktop-cta"
+        >
           Connect Us <ArrowUpRight size={14} />
         </Link>
 
-        <button className="menu-btn" onClick={() => setOpen(!open)} aria-label="Toggle navigation">
+        <button
+          type="button"
+          className="menu-btn"
+          onClick={() => setOpen((current) => !current)}
+          aria-label={open ? 'Close navigation' : 'Open navigation'}
+          aria-expanded={open}
+        >
           {open ? <X size={21} /> : <Menu size={21} />}
         </button>
       </nav>

@@ -3,82 +3,93 @@
    THE SOCIAL LANE — GLOBAL STYLES
    File: src/styles/global.css
 
-   SECTIONS:
-   1. Google Fonts
-   2. Global Reset
-   3. CSS Box Sizing
-   4. HTML & Body
-   5. Typography
-   6. Links
-   7. Form Elements
-   8. Images & SVG
-   9. Common Layout
+   1. Font Imports
+   2. CSS Reset
+   3. HTML & Body
+   4. Typography
+   5. Links & Buttons
+   6. Forms
+   7. Images & Media
+   8. App Layout
+   9. Reusable Containers
    10. Accessibility
    ===================================================== */
 
-
 /* =====================================================
-   1. GOOGLE FONTS
+   1. FONT IMPORTS
    ===================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap");
-
+@import url(
+  "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap"
+);
 
 /* =====================================================
-   2. GLOBAL RESET
-   Remove default browser spacing
+   2. CSS RESET
    ===================================================== */
 
-* {
-  margin: 0;
-  padding: 0;
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-
-/* =====================================================
-   3. HTML & PAGE SCROLLING
-   ===================================================== */
-
 html {
+  width: 100%;
+  min-width: 320px;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  tab-size: 4;
 }
 
 body {
+  width: 100%;
   min-width: 320px;
   min-height: 100vh;
-  font-family: "DM Sans", sans-serif;
+  margin: 0;
+  font-family: var(--font-body, "DM Sans", sans-serif);
+  font-size: 16px;
+  line-height: var(--line-height-body, 1.7);
   color: var(--ink);
-  background: var(--white);
-  line-height: 1.5;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: var(--theme-transition);
 }
 
-
-/* =====================================================
-   4. ROOT APPLICATION CONTAINER
-   ===================================================== */
-
 #root {
+  width: 100%;
+  min-width: 0;
   min-height: 100vh;
 }
 
 .app-shell {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  min-height: 100vh;
 }
 
 main {
-  flex: 1;
+  flex: 1 0 auto;
+  width: 100%;
+  min-width: 0;
   min-height: 60vh;
 }
 
+section,
+header,
+footer,
+nav,
+article,
+aside,
+main {
+  min-width: 0;
+}
 
 /* =====================================================
-   5. GLOBAL TYPOGRAPHY
+   3. TYPOGRAPHY
    ===================================================== */
 
 h1,
@@ -87,14 +98,34 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Manrope", sans-serif;
+  margin-top: 0;
+  font-family: var(--font-heading, "Manrope", sans-serif);
   font-weight: 700;
   line-height: 1.2;
   color: inherit;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5vw, 4.375rem);
+}
+
+h2 {
+  font-size: clamp(1.875rem, 4vw, 3.375rem);
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+}
+
+h4 {
+  font-size: 1.125rem;
 }
 
 p {
-  line-height: 1.7;
+  margin-top: 0;
+  line-height: var(--line-height-body, 1.7);
+  overflow-wrap: break-word;
 }
 
 strong,
@@ -110,31 +141,33 @@ small {
   font-size: 0.875rem;
 }
 
+figure {
+  margin: 0;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+}
+
+li {
+  line-height: 1.7;
+}
+
 ::selection {
   color: var(--white);
   background: var(--blue);
 }
 
-
 /* =====================================================
-   6. GLOBAL LINKS
+   4. LINKS & BUTTONS
    ===================================================== */
 
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
-
-a:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 4px;
-}
-
-
-/* =====================================================
-   7. BUTTONS & FORM ELEMENTS
-   Component-specific styling stays in components.css
-   ===================================================== */
 
 button,
 input,
@@ -152,23 +185,24 @@ button,
 [type="submit"],
 [type="reset"] {
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
-button:disabled {
+button:disabled,
+[type="button"]:disabled,
+[type="submit"]:disabled {
   cursor: not-allowed;
   opacity: 0.6;
 }
 
+button,
 input,
 textarea,
 select {
-  max-width: 100%;
+  border-radius: 0;
 }
 
-textarea {
-  resize: vertical;
-}
-
+a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
@@ -177,17 +211,66 @@ select:focus-visible {
   outline-offset: 3px;
 }
 
+/* =====================================================
+   5. FORMS
+   ===================================================== */
+
+input,
+textarea,
+select {
+  max-width: 100%;
+  min-width: 0;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input,
+textarea,
+select,
+button {
+  touch-action: manipulation;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-light, #8994a9);
+  opacity: 1;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  max-width: none;
+  accent-color: var(--blue);
+}
+
+input[type="search"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  cursor: pointer;
+}
 
 /* =====================================================
-   8. GLOBAL IMAGES & MEDIA
+   6. IMAGES & MEDIA
    ===================================================== */
 
 img,
 picture,
 video,
 canvas,
+iframe,
 svg {
   max-width: 100%;
+}
+
+img,
+video {
+  display: block;
 }
 
 img {
@@ -196,24 +279,131 @@ img {
 
 svg {
   vertical-align: middle;
+  flex-shrink: 0;
 }
 
+iframe {
+  border: 0;
+}
+
+video {
+  height: auto;
+}
+
+/* Avoid oversized media inside grid and flex layouts. */
+
+picture,
+figure,
+.project-art,
+.blog-art,
+.founder-image-wrap,
+.hero-visual {
+  min-width: 0;
+}
 
 /* =====================================================
-   9. COMMON LAYOUT HELPERS
+   7. APP LAYOUT
    ===================================================== */
 
-.container {
-  width: 100%;
-  max-width: 1240px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .inner-page {
+  width: 100%;
+  min-width: 0;
   min-height: 60vh;
 }
 
+.page-content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* =====================================================
+   8. REUSABLE CONTAINERS
+   ===================================================== */
+
+.container {
+  width: min(
+    calc(100% - 56px),
+    var(--container-width, 1240px)
+  );
+  margin-inline: auto;
+}
+
+.section {
+  width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+}
+
+.section.compact {
+  width: 100%;
+}
+
+/* =====================================================
+   9. RESPONSIVE FOUNDATION
+   ===================================================== */
+
+/* Large desktop */
+
+@media (min-width: 1440px) {
+  .container {
+    width: min(
+      calc(100% - 96px),
+      var(--container-width, 1240px)
+    );
+  }
+}
+
+/* Laptop */
+
+@media (max-width: 1024px) {
+  .container {
+    width: calc(100% - 48px);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 40px);
+  }
+
+  html {
+    scroll-padding-top: 80px;
+  }
+}
+
+/* Android and mobile */
+
+@media (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  html {
+    scroll-padding-top: 72px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 400px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+}
+
+/* Compact mobile */
+
+@media (max-width: 360px) {
+  .container {
+    width: calc(100% - 24px);
+  }
+}
 
 /* =====================================================
    10. ACCESSIBILITY
@@ -227,9 +417,9 @@ svg {
   *,
   *::before,
   *::after {
+    scroll-behavior: auto !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
   }
 }

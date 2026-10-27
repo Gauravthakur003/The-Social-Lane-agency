@@ -1,317 +1,359 @@
 
-/* =========================================
-   THE SOCIAL LANE AGENCY
-   Responsive Stylesheet
+/* =========================================================
+   THE SOCIAL LANE — RESPONSIVE STYLES
    File: src/styles/responsive.css
-========================================= */
 
-/* ---------- Global Responsive Fixes ---------- */
+   Breakpoints:
+   Desktop  : 1440px, 1280px, 1024px
+   Tablet   : 768px
+   Mobile   : 640px, 400px, 360px
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+   Keep component styles in components.css.
+   ========================================================= */
 
-html {
-  width: 100%;
-  overflow-x: clip;
-}
 
-body {
-  width: 100%;
-  min-width: 320px;
-  overflow-x: clip;
-}
-
-img,
-video,
-iframe,
-svg {
-  max-width: 100%;
-}
-
-img {
-  height: auto;
-}
-
-button,
-input,
-textarea,
-select {
-  max-width: 100%;
-}
-
-.container {
-  width: min(100% - 48px, 1200px);
-  margin-inline: auto;
-}
-
-section {
-  scroll-margin-top: 90px;
-}
-
-h1,
-h2,
-h3,
-h4,
-p {
-  overflow-wrap: anywhere;
-}
-
-button,
-a {
-  -webkit-tap-highlight-color: transparent;
-}
-
-/* ---------- Large Desktop: 1440px+ ---------- */
+/* =========================================================
+   1. LARGE DESKTOP — 1440px AND ABOVE
+   ========================================================= */
 
 @media (min-width: 1440px) {
-  .container {
-    max-width: 1280px;
+  .navbar-wrap,
+  .navbar,
+  .section-container,
+  .container,
+  .page-container {
+    max-width: 1440px;
   }
 
-  h1 {
-    font-size: clamp(3.5rem, 5vw, 5.5rem);
-  }
-
-  section {
-    padding-block: 100px;
-  }
-}
-
-/* ---------- Laptop: 1025px–1200px ---------- */
-
-@media (max-width: 1200px) {
-  .container {
-    width: min(100% - 40px, 1100px);
-  }
-
-  .hero,
-  .hero-section {
-    gap: 36px;
-  }
-
-  .founders-grid,
-  .team-grid {
-    gap: 24px;
-  }
-
-  .services-grid,
-  .blog-grid {
-    gap: 24px;
-  }
-}
-
-/* ---------- Tablet and Small Laptop ---------- */
-
-@media (max-width: 1024px) {
-  .container {
-    width: min(100% - 36px, 960px);
-  }
-
-  section {
-    padding-block: 72px;
-  }
-
-  .hero,
-  .hero-section {
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-
-  .hero h1,
-  .hero-title {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    line-height: 1.1;
-  }
-
-  .hero p,
-  .hero-description {
-    font-size: 1rem;
-  }
-
-  .services-grid,
-  .founders-grid,
-  .team-grid,
-  .blog-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .about-grid,
-  .about-content {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-}
-
-/* ---------- Tablet: 768px and below ---------- */
-
-@media (max-width: 768px) {
-  .container {
-    width: calc(100% - 32px);
-  }
-
-  section {
-    padding-block: 60px;
-  }
-
-  .hero,
-  .hero-section,
-  .about-grid,
-  .about-content,
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero {
-    text-align: center;
-    gap: 36px;
-  }
-
-  .hero-content {
-    width: 100%;
-    max-width: 680px;
+  .navbar {
     margin-inline: auto;
   }
 
-  .hero h1,
-  .hero-title {
-    font-size: clamp(2.3rem, 7vw, 3.5rem);
+  .hero-section,
+  .hero,
+  .home-hero {
+    min-height: 650px;
+  }
+
+  .section {
+    padding-inline: 64px;
+  }
+}
+
+
+/* =========================================================
+   2. LAPTOP — 1280px
+   ========================================================= */
+
+@media (max-width: 1280px) {
+  .navbar {
+    padding-inline: 32px;
+  }
+
+  .section,
+  .section-container,
+  .page-container {
+    padding-inline: 32px;
+  }
+
+  .hero-section,
+  .hero,
+  .home-hero {
+    gap: 32px;
+  }
+
+  .hero-content h1,
+  .hero-text h1,
+  .hero-section h1 {
+    font-size: clamp(2.6rem, 4.5vw, 4.2rem);
+  }
+
+  .services-grid,
+  .portfolio-grid,
+  .blog-grid,
+  .project-grid {
+    gap: 24px;
+  }
+}
+
+
+/* =========================================================
+   3. SMALL LAPTOP — 1024px
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  .navbar {
+    padding-inline: 24px;
+  }
+
+  .brand img {
+    max-width: 175px;
+    height: auto;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links a {
+    font-size: 14px;
+  }
+
+  .section,
+  .section-container,
+  .page-container {
+    padding-inline: 24px;
+  }
+
+  .hero-section,
+  .hero,
+  .home-hero {
+    gap: 24px;
+  }
+
+  .hero-content h1,
+  .hero-text h1,
+  .hero-section h1 {
+    font-size: clamp(2.4rem, 4.8vw, 3.7rem);
     line-height: 1.12;
   }
 
-  .hero p,
-  .hero-description {
-    max-width: 600px;
-    margin-inline: auto;
-  }
-
-  .hero-actions,
-  .hero-buttons {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .hero-visual,
-  .hero-image,
-  .hero-illustration {
-    width: 100%;
-    max-width: 560px;
-    margin-inline: auto;
+  .hero-content p,
+  .hero-text p,
+  .hero-section p {
+    font-size: 15px;
   }
 
   .services-grid,
-  .founders-grid,
-  .team-grid,
-  .blog-grid {
+  .portfolio-grid,
+  .blog-grid,
+  .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 20px;
   }
 
-  .section-heading {
-    margin-bottom: 36px;
-    text-align: center;
+  .founders-grid,
+  .team-grid {
+    gap: 20px;
   }
 
-  .section-heading h2,
-  .section-title {
-    font-size: clamp(2rem, 5vw, 2.8rem);
-  }
-
-  .brand-strip,
-  .brands-list {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 24px;
-  }
-
-  .about-image,
-  .about-visual {
-    width: 100%;
-    max-width: 600px;
-    margin-inline: auto;
-  }
-
-  .contact-form {
-    width: 100%;
-  }
-
-  .footer-content,
-  .footer-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-  }
-
-  .footer-bottom {
-    flex-wrap: wrap;
-    gap: 12px;
+  .footer-content {
+    gap: 32px;
   }
 }
 
-/* ---------- Mobile: 480px and below ---------- */
 
-@media (max-width: 480px) {
-  .container {
-    width: calc(100% - 28px);
+/* =========================================================
+   4. TABLET AND MOBILE NAVIGATION — 768px
+   ========================================================= */
+
+@media (max-width: 768px) {
+  /* ---------- Navbar layout ---------- */
+
+  .navbar-wrap {
+    width: 100%;
   }
 
-  section {
-    padding-block: 48px;
+  .navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 20px;
   }
 
-  .hero,
-  .hero-section {
-    gap: 28px;
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 0;
   }
 
-  .hero h1,
-  .hero-title {
-    font-size: clamp(2rem, 9vw, 2.8rem);
-    line-height: 1.12;
-    letter-spacing: -0.04em;
+  .brand img {
+    display: block;
+    width: auto;
+    max-width: 155px;
+    max-height: 46px;
+    object-fit: contain;
   }
 
-  .hero p,
-  .hero-description {
-    font-size: 0.95rem;
-    line-height: 1.7;
+  /* Hide the desktop CTA on mobile/tablet. */
+  .navbar > .desktop-cta,
+  .navbar > .nav-cta {
+    display: none !important;
   }
 
-  .hero-actions,
-  .hero-buttons {
+  /* ---------- Hamburger button ---------- */
+
+  .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    padding: 0;
+    border: 1px solid rgba(20, 86, 255, 0.2);
+    border-radius: 10px;
+    background: #ffffff;
+    color: #06133d;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .menu-btn svg {
+    display: block;
+  }
+
+  /* ---------- Mobile dropdown ---------- */
+
+  .nav-links {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 16px;
+    right: 16px;
+    z-index: 1001;
+
+    display: none;
     flex-direction: column;
     align-items: stretch;
-    gap: 12px;
+    justify-content: flex-start;
+    gap: 0;
+
+    width: auto;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+
+    padding: 12px;
+    border: 1px solid rgba(6, 19, 61, 0.08);
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 18px 45px rgba(6, 19, 61, 0.14);
   }
 
-  .hero-actions .btn,
-  .hero-buttons .btn,
-  .hero-actions a,
-  .hero-buttons a {
+  /* Matches Navbar.jsx: className={`nav-links ${open ? 'open' : ''}`} */
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links > a:not(.mobile-cta) {
+    display: flex;
+    align-items: center;
     width: 100%;
+    min-height: 46px;
+    padding: 12px 14px;
+    border-radius: 9px;
+    color: #06133d;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .nav-links > a:not(.mobile-cta):hover,
+  .nav-links > a:not(.mobile-cta).active {
+    background: #eaf3ff;
+    color: #1456ff;
+  }
+
+  /* ---------- Mobile Connect Us CTA ---------- */
+
+  .nav-links > .mobile-cta {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-  }
+    gap: 8px;
 
-  .services-grid,
-  .founders-grid,
-  .team-grid,
-  .blog-grid,
-  .footer-content,
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .service-card,
-  .founder-card,
-  .team-card,
-  .blog-card {
     width: 100%;
+    min-height: 46px;
+    margin-top: 10px;
+    padding: 12px 16px;
+
+    border: none;
+    border-radius: 10px;
+    background: #1456ff;
+    color: #ffffff !important;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-align: center;
+    text-decoration: none;
+
+    transition:
+      background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .nav-links > .mobile-cta:hover,
+  .nav-links > .mobile-cta.active {
+    background: #1048dc;
+    color: #ffffff !important;
+  }
+
+  .nav-links > .mobile-cta:active {
+    transform: scale(0.98);
+  }
+
+  /* ---------- Hero sections ---------- */
+
+  .hero-section,
+  .hero,
+  .home-hero {
+    grid-template-columns: 1fr;
+    grid-template-areas: none;
+    gap: 28px;
+    min-height: auto;
+    padding: 56px 24px;
+  }
+
+  .hero-content,
+  .hero-text,
+  .hero-left,
+  .hero-visual,
+  .hero-image,
+  .hero-right {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-content h1,
+  .hero-text h1,
+  .hero-section h1 {
+    font-size: clamp(2.4rem, 6vw, 3.5rem);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
+  }
+
+  .hero-content p,
+  .hero-text p,
+  .hero-section p {
+    max-width: 620px;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .hero-image img,
+  .hero-visual img,
+  .hero-right img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* ---------- General sections ---------- */
+
+  .section,
+  .section-container,
+  .page-container {
+    padding-inline: 24px;
+  }
+
+  .section {
+    padding-block: 56px;
   }
 
   .section-heading {
@@ -319,77 +361,357 @@ a {
   }
 
   .section-heading h2,
-  .section-title {
-    font-size: 2rem;
+  .section-title,
+  .section h2 {
+    font-size: clamp(1.8rem, 4.5vw, 2.6rem);
     line-height: 1.2;
   }
 
-  .section-heading p,
-  .section-description {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
+  /* ---------- Grids ---------- */
 
-  .brand-strip,
-  .brands-list {
+  .services-grid,
+  .portfolio-grid,
+  .blog-grid,
+  .project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
 
-  .contact-form input,
-  .contact-form textarea,
-  .contact-form select,
-  input,
-  textarea,
-  select {
-    font-size: 16px;
+  .founders-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 
-  .contact-form textarea,
-  textarea {
-    min-height: 130px;
+  /* ---------- About and founders ---------- */
+
+  .about-section,
+  .about-content,
+  .founders-section,
+  .founder-content {
+    gap: 24px;
+  }
+
+  .about-section img,
+  .founder-card img,
+  .team-card img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* ---------- Contact ---------- */
+
+  .contact-section,
+  .contact-content {
+    gap: 24px;
+  }
+
+  .contact-form,
+  .contact-info {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ---------- Footer ---------- */
+
+  .footer-content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px 20px;
   }
 
   .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
-  .footer-links {
-    flex-wrap: wrap;
-    gap: 12px 18px;
+  /* ---------- Prevent accidental horizontal overflow ---------- */
+
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+
+  pre,
+  table {
+    max-width: 100%;
+    overflow-x: auto;
   }
 }
 
-/* ---------- Extra Small Mobile: 360px and below ---------- */
 
-@media (max-width: 360px) {
-  .container {
-    width: calc(100% - 24px);
+/* =========================================================
+   5. DESKTOP NAVIGATION — 769px AND ABOVE
+   Keep this OUTSIDE the 768px media query.
+   ========================================================= */
+
+@media (min-width: 769px) {
+  .menu-btn {
+    display: none !important;
   }
 
-  section {
-    padding-block: 40px;
+  .nav-links {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+    width: auto;
+    max-height: none;
+    overflow: visible;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
-  .hero h1,
-  .hero-title {
-    font-size: 1.9rem;
+  .nav-links > .mobile-cta {
+    display: none !important;
   }
 
-  .section-heading h2,
-  .section-title {
-    font-size: 1.75rem;
+  .navbar > .desktop-cta,
+  .navbar > .nav-cta {
+    display: inline-flex;
+  }
+}
+
+
+/* =========================================================
+   6. MOBILE — 640px
+   ========================================================= */
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 12px 16px;
+  }
+
+  .brand img {
+    max-width: 140px;
+    max-height: 42px;
+  }
+
+  .nav-links {
+    left: 12px;
+    right: 12px;
+    padding: 10px;
+  }
+
+  .hero-section,
+  .hero,
+  .home-hero {
+    padding: 44px 20px;
+    gap: 24px;
+  }
+
+  .hero-content h1,
+  .hero-text h1,
+  .hero-section h1 {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+    line-height: 1.12;
+  }
+
+  .hero-content p,
+  .hero-text p,
+  .hero-section p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .section,
+  .section-container,
+  .page-container {
+    padding-inline: 20px;
+  }
+
+  .section {
+    padding-block: 44px;
   }
 
   .services-grid,
+  .portfolio-grid,
+  .blog-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
   .founders-grid,
-  .team-grid,
-  .blog-grid {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  button,
+  .button,
+  .btn,
+  .primary-btn,
+  .secondary-btn {
+    max-width: 100%;
+  }
+}
+
+
+/* =========================================================
+   7. SMALL ANDROID — 400px
+   ========================================================= */
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .brand img {
+    max-width: 124px;
+    max-height: 38px;
+  }
+
+  .menu-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-links {
+    left: 8px;
+    right: 8px;
+    top: calc(100% + 6px);
+    padding: 9px;
+    border-radius: 13px;
+  }
+
+  .nav-links > a:not(.mobile-cta) {
+    min-height: 43px;
+    padding: 11px 12px;
+    font-size: 14px;
+  }
+
+  .nav-links > .mobile-cta {
+    min-height: 44px;
+    padding: 11px 12px;
+    font-size: 14px;
+  }
+
+  .hero-section,
+  .hero,
+  .home-hero {
+    padding: 36px 16px;
+    gap: 20px;
+  }
+
+  .hero-content h1,
+  .hero-text h1,
+  .hero-section h1 {
+    font-size: clamp(1.9rem, 8.5vw, 2.5rem);
+    line-height: 1.14;
+  }
+
+  .section,
+  .section-container,
+  .page-container {
+    padding-inline: 16px;
+  }
+
+  .section {
+    padding-block: 38px;
+  }
+
+  .section-heading h2,
+  .section-title,
+  .section h2 {
+    font-size: 1.75rem;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+
+/* =========================================================
+   8. EXTRA SMALL ANDROID — 360px AND BELOW
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .navbar {
+    padding-inline: 10px;
+  }
+
+  .brand img {
+    max-width: 112px;
+    max-height: 36px;
+  }
+
+  .menu-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-links {
+    left: 6px;
+    right: 6px;
+  }
+
+  .hero-section,
+  .hero,
+  .home-hero {
+    padding: 32px 14px;
+  }
+
+  .hero-content h1,
+  .hero-text h1,
+  .hero-section h1 {
+    font-size: 1.85rem;
+  }
+
+  .hero-content p,
+  .hero-text p,
+  .hero-section p {
+    font-size: 13px;
+  }
+
+  .section,
+  .section-container,
+  .page-container {
+    padding-inline: 14px;
+  }
+
+  .section {
+    padding-block: 34px;
+  }
+
+  .section-heading h2,
+  .section-title,
+  .section h2 {
+    font-size: 1.6rem;
+  }
+
+  .services-grid,
+  .portfolio-grid,
+  .blog-grid,
+  .project-grid,
+  .founders-grid,
+  .team-grid {
     gap: 16px;
   }
 }
 
-/* ---------- Accessibility ---------- */
+
+/* =========================================================
+   9. ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
   *,
